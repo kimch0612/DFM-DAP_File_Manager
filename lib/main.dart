@@ -90,12 +90,6 @@ class HomePage extends StatelessWidget {
             );
           },
         ),
-        floatingActionButton: FloatingActionButton.extended(
-          onPressed: () async {
-            FileManager.requestFilesAccessPermission();
-          },
-          label: Text("Request File Access Permission"),
-        ),
       ),
     );
   }
@@ -196,25 +190,25 @@ class HomePage extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               ListTile(
-                  title: Text("Name"),
+                  title: Text("이름"),
                   onTap: () {
                     controller.sortBy(SortBy.name);
                     Navigator.pop(context);
                   }),
               ListTile(
-                  title: Text("Size"),
+                  title: Text("용량"),
                   onTap: () {
                     controller.sortBy(SortBy.size);
                     Navigator.pop(context);
                   }),
               ListTile(
-                  title: Text("Date"),
+                  title: Text("날짜"),
                   onTap: () {
                     controller.sortBy(SortBy.date);
                     Navigator.pop(context);
                   }),
               ListTile(
-                  title: Text("type"),
+                  title: Text("타입"),
                   onTap: () {
                     controller.sortBy(SortBy.type);
                     Navigator.pop(context);
@@ -255,7 +249,7 @@ class HomePage extends StatelessWidget {
 
                     Navigator.pop(context);
                   },
-                  child: Text('Create Folder'),
+                  child: Text('새 폴더 생성'),
                 )
               ],
             ),
