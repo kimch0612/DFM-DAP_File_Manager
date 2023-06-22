@@ -62,7 +62,44 @@ class HomePage extends StatelessWidget {
                     )),
                     subtitle: subtitle(entity),
                     onLongPress: () {
-                      showToast('onLongPress 이벤트입니다.');
+                      showDialog(
+                        context: context,
+                        barrierDismissible: true,
+                        builder: (context) => Dialog(
+                          child: Container(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                ListTile(
+                                    title: Text("복사"),
+                                    onTap: () {
+                                      controller.sortBy(SortBy.name);
+                                      Navigator.pop(context);
+                                    }),
+                                ListTile(
+                                    title: Text("이동"),
+                                    onTap: () {
+                                      controller.sortBy(SortBy.size);
+                                      Navigator.pop(context);
+                                    }),
+                                ListTile(
+                                    title: Text("삭제"),
+                                    onTap: () {
+                                      controller.sortBy(SortBy.date);
+                                      Navigator.pop(context);
+                                    }),
+                                ListTile(
+                                    title: Text("이름 변경"),
+                                    onTap: () {
+                                      controller.sortBy(SortBy.type);
+                                      Navigator.pop(context);
+                                    }),
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
                     },
                     onTap: () async {
                       if (FileManager.isDirectory(entity)) {
