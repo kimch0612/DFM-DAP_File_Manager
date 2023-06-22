@@ -156,6 +156,10 @@ class HomePage extends StatelessWidget {
           icon: Icon(Icons.sort_rounded),
         ),
         IconButton(
+          onPressed: () => sort(context),
+          icon: Icon(Icons.cloud_rounded),
+        ),
+        IconButton(
           onPressed: () => selectStorage(context),
           icon: Icon(Icons.sd_storage_rounded),
         )
