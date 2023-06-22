@@ -2,12 +2,22 @@ import 'dart:io';
 
 import 'package:file_manager/file_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
+}
+
+void showToast(String message) {
+  Fluttertoast.showToast(msg : message,
+    backgroundColor: Colors.white,
+    textColor: Colors.black,
+    toastLength: Toast.LENGTH_SHORT,
+    gravity: ToastGravity.BOTTOM
+  );
 }
 
 class _MyAppState extends State<MyApp> {
@@ -51,6 +61,9 @@ class HomePage extends StatelessWidget {
                       showFileExtension: true,
                     )),
                     subtitle: subtitle(entity),
+                    onLongPress: () {
+                      showToast('onLongPress 이벤트입니다.');
+                    },
                     onTap: () async {
                       if (FileManager.isDirectory(entity)) {
                         // open the folder
